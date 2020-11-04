@@ -1,32 +1,40 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div>
+    <Navbar v-if="user" />
+    <div class="p-4 bg-gray-100 min-h-screen pb-8">
+      <router-view />
     </div>
-    <router-view/>
+    <footer class="fixed bottom-0 left-0 p-4 bg-gray-800 w-full flex">
+      <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <router-link class="text-gray-300 px-3 py-2 rounded-md text-sm font-medium leading-5 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out" to="/about">About</router-link>
+      </div>
+    </footer>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import { mapState } from 'vuex';
+import Navbar from '@/components/Navbar.vue';
+import * as firebase from '@/utils/firebase';
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+  name: 'App',
+  computed: {
+    ...mapState({
+      user: (state) => state.userProfile,
+    }),
+  },
+  mounted() {
+    this.$store.dispatch('checkIfAuthenticated');
+    if (this.user.uid) {
+      firebase.transactionCollection.where('userId', '==', this.user.uid).orderBy('updatedAt', 'desc').onSnapshot((snapshot) => {
+        const transactions = snapshot.docs.map((docs) => ({ ...docs.data(), key: docs.id }));
+        this.$store.commit('setTransactions', transactions);
+      });
     }
-  }
-}
-</style>
+  },
+  components: {
+    Navbar,
+  },
+};
+</script>

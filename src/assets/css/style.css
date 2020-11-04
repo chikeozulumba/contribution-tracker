@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Krub:wght@200;300;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  padding: 0;
+  font-family: 'Krub', sans-serif;
+  font-weight: 300;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.font-primary {
+  font-family: 'Bree Serif', sans-serif;
+};
+
+.font-secondary {
+  font-family: 'Krub', sans-serif;
+};
+
+
+.notie-background-success {
+    background-color: #5850ec !important;
+}
+
+.notie-background-warning {
+    background-color: #ED8936 !important;
+}
+
+.notie-background-error {
+    background-color: #E53E3E !important;
+}
+
+.notie-background-info {
+    background-color: #2D3748 !important;
+}
+
+.notie-background-neutral {
+    background-color: #E2E8F0 !important;
+    color: #1A202C !important;
+}
+
+.notie-textbox-inner {
+    font-size: 14px;
+}
+
+.notie-textbox-inner::first-letter {
+    text-transform: capitalize;
+}
+
+.notie-textbox {
+    color: #fff;
+    padding: 10px 20px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.max-w-8xl {
+  max-width: 90rem;
+}
