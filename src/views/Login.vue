@@ -13,7 +13,7 @@
             >
               <span class="absolute left-0 inset-y-0 flex items-center pl-3">
                 <svg
-                  class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400 transition ease-in-out duration-150"
+                  class="h-8 w-8 text-indigo-400 group-hover:text-indigo-400 transition ease-in-out duration-150"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >

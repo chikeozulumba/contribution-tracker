@@ -30,7 +30,7 @@ export default new Vuex.Store({
         const userProfile = firebase.auth.currentUser.toJSON();
         return commit('setUserProfile', userProfile);
       } catch (error) {
-        dispatch('logout');
+        // dispatch('logout');
         return null;
       }
     },
@@ -138,6 +138,7 @@ export default new Vuex.Store({
     async logout() {
       try {
         await firebase.auth.signOut();
+        window.location.reload();
       } catch (error) {
         window.notie.alert({
           type: 'error',

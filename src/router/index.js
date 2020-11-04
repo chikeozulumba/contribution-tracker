@@ -61,10 +61,10 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some((x) => x.meta.requiresAuth);
-  const uid = auth.currentUser.toJSON()?.uid;
   if (requiresAuth && !auth.currentUser) {
     return next('/login');
   }
+  const uid = auth.currentUser?.toJSON()?.uid;
   if (to.name === 'Login' && uid) {
     return next('/');
   }
