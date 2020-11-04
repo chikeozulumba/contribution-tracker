@@ -2,7 +2,7 @@
 <template>
   <div class="home max-w-7xl px-2 mx-auto">
     <h3 class="text-2xl font-primary mb-8">Dashboard</h3>
-    <div class="flex flex-col flex w-full" v-if="transactions.length > 0">
+    <div class="flex flex-col w-full" v-if="transactions.length > 0">
       <div class="md:mb-0 mb-8 w-full flex flex-col md:flex-row">
         <div
           class="border border-gray-200 sm:rounded-md sm:overflow-hidden px-4 py-5 bg-white sm:p-6 md:w-1/2 w-full mt-4 md:mt-0 md:mr-2"

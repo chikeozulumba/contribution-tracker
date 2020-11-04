@@ -126,28 +126,10 @@ export default {
   },
   methods: {
     generatePDF() {
-      const vm = this;
-      const columns = [
-        { title: 'Title & Memo', dataKey: 'title' },
-        { title: 'Transaction Date &\nDate Modified', dataKey: 'date' },
-        { title: 'Amount', dataKey: 'amount' },
-      ];
-
-      const data = this.transactions.map((t) => ({
-        title: `${t.payeeName}\n\n${t.memo}`,
-        date: `${this.formatDate(t.transactionDate.seconds, 'EEE PPpp')}\n\n${this.formatDate(t.updatedAt.seconds, 'EEE PPpp')}`,
-        amount: this.moneyFormat(t.amount, t.currency || 'USD'),
-      }));
-
       this.hideLastColumn = true;
       const doc = new JSPDF('p', 'pt');
       doc.autoTable({ html: '#transactions' });
-      // doc.text('To Do List', 40, 40);
-      // doc.autoTable(columns, vm.todos, {
-      //   margin: { top: 60 },
-      // });
       doc.save(`TRANSACTIONS-${new Date().getTime()}.pdf`);
-      window.location.reload();
     },
     handleCurrencyChange(evt) {
       const { value } = evt.target;

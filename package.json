@@ -1,5 +1,5 @@
 {
-  "name": "independence-day",
+  "name": "contribution-tracker",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -34,7 +34,7 @@
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/eslint-config-airbnb": "^5.0.2",
-    "autoprefixer": "^10.0.1",
+    "autoprefixer": "^9.0.0",
     "babel-eslint": "^10.1.0",
     "cssnano": "^4.1.10",
     "eslint": "^6.7.2",

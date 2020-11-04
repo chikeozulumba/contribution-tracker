@@ -62,17 +62,28 @@
           <div
             class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start"
           >
-            <div class="flex-shrink-0">
-              <img
+            <div @click.prevent="$router.history.push('/')" class="flex-shrink-0 text-white cursor-pointer">
+              <!-- <img
                 class="block lg:hidden h-8 w-auto"
                 src="https://tailwindui.com/img/logos/workflow-mark-on-dark.svg"
                 alt="Workflow logo"
-              />
-              <img
-                class="hidden lg:block h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-logo-on-dark.svg"
-                alt="Workflow logo"
-              />
+              /> -->
+              <!-- <h3 class="text-2xl font-primary">
+                Contribution Tracker
+              </h3> -->
+              <div class="block lg:hidden text-center">
+                <h3 class="text-lg font-primary block">
+                  Contribution
+                </h3>
+                <h3 class="text-md font-primary block -mt-2">
+                  Tracker
+                </h3>
+              </div>
+              <div class="hidden lg:block">
+                <h3 class="text-2xl font-primary block">
+                  Contribution Tracker
+                </h3>
+              </div>
             </div>
             <div class="hidden sm:block sm:ml-6">
               <div class="flex">
