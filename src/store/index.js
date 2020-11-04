@@ -25,7 +25,7 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    async checkIfAuthenticated({ commit, dispatch }) {
+    async checkIfAuthenticated({ commit }) {
       try {
         const userProfile = firebase.auth.currentUser.toJSON();
         return commit('setUserProfile', userProfile);
@@ -49,7 +49,7 @@ export default new Vuex.Store({
         return window.notie.alert({
           type: 'success',
           text: 'Transaction added successfully.',
-          time: 3,
+          time: 5,
         });
       } catch (error) {
         window.notie.alert({
@@ -97,7 +97,6 @@ export default new Vuex.Store({
         }
         return null;
       } catch (error) {
-        console.log(error);
         window.notie.alert({
           type: 'error',
           text: 'Removing transaction failed.',
@@ -112,7 +111,6 @@ export default new Vuex.Store({
         transactions = transactions.docs.map((docs) => ({ ...docs.data(), key: docs.id }));
         return commit('setTransactions', transactions);
       } catch (error) {
-        console.log(error);
         window.notie.alert({
           type: 'error',
           text: 'Retrieving transactions failed.',

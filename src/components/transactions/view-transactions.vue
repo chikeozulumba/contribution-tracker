@@ -3,7 +3,7 @@
     <div class="flex flex-row justify-between w-full items-center">
       <h3 class="text-2xl font-primary">Transactions ({{ transactions.length }})</h3>
       <div>
-        <a href="/" @click.prevent="generatePDF" class="bg-purple-700 text-white rounded text-xs px-4 py-1 flex font-normal">
+        <a href="/" @click.prevent="generatePDF" class="bg-indigo-600 text-white rounded text-xs px-4 py-1 flex font-normal">
           Generate PDF
         </a>
       </div>
@@ -164,18 +164,41 @@ export default {
 };
 </script>
 
-<style scoped>
-#memo {
-  resize: none;
+<style>
+.notie-background-success {
+    background-color: #5850ec !important;
 }
-.form-select:focus {
-  border-color: transparent;
+
+.notie-background-warning {
+    background-color: #ED8936 !important;
 }
-.focus\:outline-none:focus {
-  outline: none;
-  outline-offset: 0px;
+
+.notie-background-error {
+    background-color: #E53E3E !important;
 }
-.form-select:focus {
-  box-shadow: none;
+
+.notie-background-info {
+    background-color: #2D3748 !important;
+}
+
+.notie-background-neutral {
+    background-color: #E2E8F0 !important;
+    color: #1A202C !important;
+}
+
+.notie-textbox-inner {
+    font-size: 14px;
+}
+
+.notie-textbox-inner::first-letter {
+    text-transform: capitalize;
+}
+
+.notie-textbox {
+    color: #fff;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    text-align: center;
 }
 </style>
