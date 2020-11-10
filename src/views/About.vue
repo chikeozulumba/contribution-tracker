@@ -4,7 +4,7 @@
     <h3 class="text-2xl font-primary mb-2">About</h3>
     <h3 class="text-xl font-primary">{{ user.displayName }}</h3>
     <h3 class="text-md">{{ user.email }}</h3>
-    <ul class="flex flex-col mt-8">
+    <ul class="flex flex-col mt-8" style="width: fit-content">
       <li class="my-2 inline-flex items-end cursor-pointer text-gray-800 hover:text-purple-700">
         <span class="mr-4">
           <svg
